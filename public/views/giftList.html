@@ -1,0 +1,30 @@
+<div>
+    <form id="giftlistform" class="form form-total" ng-submit="saveGiftList()">
+        <div class="form-group">
+            <label for="name" itemprop="name" >Name this list</label>
+            <input type="text" name="name"  class="form-control" data-ng-model="giftlist.name" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="isfor">Who is this list for?</label>
+            <input itemtype="http://data-vocabulary.org/Person" type="text" name="isfor"  class="form-control" data-ng-model="giftlist.isfor"/>
+        </div>
+        <div id="wrapper">
+
+            <!-- LOOP OVER THE giftideas IN $scope.gifts -->
+            <div id="columns">
+                <div ng-repeat="gift in giftlist.gifts" class="pin">
+                    <a href="" ng-click="amazonLink(gift.amazonlink)">
+                        <div>
+                            <img src="http://cssdeck.com/uploads/media/items/2/2v3VhAp.png" />
+                            <p>{{ gift.name }}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" >
+                    Save
+            </button>
+        </div>
+    </form>
+</div>

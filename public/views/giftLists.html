@@ -1,0 +1,22 @@
+<div id="gift-lists" class="row">
+
+    <div id="wrapper">
+<div>
+        <a href="/giftlistedit"><button type="button" class="btn btn-primary">New List</button></a>
+    </div>
+        <!-- LOOP OVER THE TODOS IN $scope.gifts -->
+        <div id="columns">
+
+            <div ng-repeat="giftlist in giftlists" class="pin">
+             <a ng-href="/giftlist/{{ giftlist._id }}">
+                <div class="cube">
+                    <label>List Name</label>
+                    <p>{{ giftlist.name }}</p>
+                    <label>Is For</label>
+                    <p>{{ giftlist.isfor }}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+</div>

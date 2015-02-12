@@ -1,0 +1,52 @@
+<div class="wrapper">
+<a id="top  "></a>
+    <div class="statusRow">
+                    <div class="alert alert-success" data-ng-show="updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;&nbsp;{{ actionMessage }}
+                    </div>
+                </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        <h3 class="panel-title">Gift list {{ giftlist.name }} for {{ giftlist.isfor }} </h3>
+        </div>
+        <div class="panel-body">
+         <div id="columns">
+            <div ng-repeat="gift in giftlist.gifts" class="pin">
+                <div>
+                <a href="" itemprop="url" ng-click="amazonLink(gift.amazonlink)">
+                    <img itemprop="image" src="{{ gift.image }}" />
+                </a>
+                    <label for="name">Gift Name</label>
+                    <input itemtype="http://data-vocabulary.org/Product" type="text" name="name"  class="form-control" data-ng-model="gift.name" required/>
+                    <label for="name">Gift Note</label>
+                    <input type="text" name="name"  class="form-control" data-ng-model="gift.note" required/>
+                    <br />
+                    <button ng-click="updateGift(gift, $index)" type="submit" class="btn btn-primary btn-xs btn-block">Update!</button>
+                    <button ng-click="deleteGift(gift._id, $index)" type="submit" class="btn btn-danger btn-xs btn-block">Delete</button>
+                </div>
+
+            </div>
+        </div>
+        </div>
+        <div class="panel-footer">
+        <h3 class="panel-heading">Add a new gift idea to this list:</h3>
+            <form id="giftlistgiftform" class="form form-total" ng-submit="addGiftToGiftList()">
+        <div class="form-group">
+            <label for="name">Name this Gift Idea</label>
+            <input type="text" name="name"  class="form-control" data-ng-model="newGift.name" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="note">Add a note</label>
+            <input type="text" name="note"  class="form-control" data-ng-model="newGift.note"/>
+        </div>
+            <button type="submit" class="btn btn-primary" >
+                    Save
+            </button>
+            or
+            <button ng-click="deleteGiftList()" type="submit" class="btn btn-danger">Delete Entire List</button>
+        </div>
+    </form>
+        </div>
+    </div>
+</div>

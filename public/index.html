@@ -1,0 +1,54 @@
+<!doctype html>
+<html ng-app="giftApp">
+<head>
+	<meta charset="UTF-8">
+	<base href="/">
+
+	<title>Gift Ideas</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+
+	<!-- JS -->
+	<script src="libs/angular/angular.min.js"></script>
+	<script src="libs/angular-route/angular-route.min.js"></script>
+	<script src="libs/angular-resource/angular-resource.min.js"></script>
+
+	<!-- ANGULAR CUSTOM -->
+	<script src="app.js"></script>
+	<script src="services/giftService.js"></script>
+	<script src="controllers/giftIdeaController.js"></script>
+	<script src="controllers/giftListsController.js"></script>
+	<script src="controllers/giftListController.js"></script>
+	<script src="controllers/giftListGiftController.js"></script>
+	<script src="controllers/loginController.js"></script>
+</head>
+<body>
+<div class="container">
+
+	<!-- HEADER -->
+	<nav class="navbar navbar-inverse">
+		<div class="navbar-header">
+			<a property="http://purl.org/dc/terms/title" class="navbar-brand" href="/">GiftR</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li><a href="/giftlists">GiftLists</a></li>
+			<li><a href="/ideas">Gift Ideas</a></li>
+			<li ng-show="isNotLoggedIn"><a href="/login">Login</a></li>
+			<li ng-show="canLogOut"><a href="#/" ng-click="logout()">Logout</a></li>
+			<li ng-show="canRegister"><a href="/register">Register</a></li>
+		</ul>
+	</nav>
+<div class="statusRow">
+                    <div class="alert alert-warning" data-ng-show="authMessage">
+                        <span class="glyphicon glyphicon-warning"></span>&nbsp;&nbsp;{{ message }}
+                    </div>
+                </div>
+
+	<!-- ANGULAR DYNAMIC CONTENT -->
+	<div ng-view></div>
+
+</div>
+</body>
+</html>
