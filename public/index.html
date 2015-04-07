@@ -25,21 +25,20 @@
 	<script src="controllers/loginController.js"></script>
 </head>
 <body>
-<div class="container">
+<!-- HEADER -->
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <a property="http://purl.org/dc/terms/title" class="navbar-brand" href="/">Wrapp</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li><a href="/giftlists">GiftLists</a></li>
+        <li><a href="/ideas">Gift Ideas</a></li>
+        <li ng-show="isNotLoggedIn"><a href="/login">Login</a></li>
+        <li ng-show="canLogOut"><a href="#/" ng-click="logout()">Logout</a></li>
+        <li ng-show="canRegister"><a href="/register">Register</a></li>
+    </ul>
+</nav>
 
-	<!-- HEADER -->
-	<nav class="navbar navbar-inverse">
-		<div class="navbar-header">
-			<a property="http://purl.org/dc/terms/title" class="navbar-brand" href="/">GiftR</a>
-		</div>
-		<ul class="nav navbar-nav">
-			<li><a href="/giftlists">GiftLists</a></li>
-			<li><a href="/ideas">Gift Ideas</a></li>
-			<li ng-show="isNotLoggedIn"><a href="/login">Login</a></li>
-			<li ng-show="canLogOut"><a href="#/" ng-click="logout()">Logout</a></li>
-			<li ng-show="canRegister"><a href="/register">Register</a></li>
-		</ul>
-	</nav>
 <div class="statusRow">
                     <div class="alert alert-warning" data-ng-show="authMessage">
                         <span class="glyphicon glyphicon-warning"></span>&nbsp;&nbsp;{{ message }}
@@ -49,6 +48,5 @@
 	<!-- ANGULAR DYNAMIC CONTENT -->
 	<div ng-view></div>
 
-</div>
 </body>
 </html>

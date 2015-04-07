@@ -68,11 +68,11 @@
         $routeProvider
             .when('/login', {
                 controller: 'LoginController',
-                templateUrl: viewBase + 'login.html',
+                templateUrl: viewBase + 'login.html'
             })
             .when('/register', {
                 controller: 'LoginController',
-                templateUrl: viewBase + 'register.html',
+                templateUrl: viewBase + 'register.html'
             })
             .when('/ideas', {
                 controller: 'GiftIdeaController',

@@ -9,6 +9,7 @@ var morgan         = require('morgan');
 var cookieParser   = require('cookie-parser');
 var session        = require('express-session');
 var favicon        = require('serve-favicon');
+var config         = require('./config/config');
 
 // configuration ===========================================
 
@@ -29,7 +30,7 @@ app.use(favicon(__dirname + '/public/images/favicon.ico'));
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
 app.use(express.static(__dirname + '/public')); // set the static files location /public/img will be /img for users
 
-app.use(session({ secret: 'thisisasecretthatshouldnotbeknown3244t532452', cookie: { maxAge: 60000000 }})) // session secret
+app.use(session({ secret: config.passport_secret, cookie: { maxAge: 60000000 }})) // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
